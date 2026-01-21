@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class Reader {
     @Id
-    private String id;
+    private String idReader;
     private String name;
     private String surname;
     private LocalDate dateOfBirth;
