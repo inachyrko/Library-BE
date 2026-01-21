@@ -22,8 +22,28 @@ public class ReaderController {
         return readerRepository.findAll();
     }
 
+    @GetMapping("/{idReader}")
+    public Reader getReader(@PathVariable String idReader) {
+        return readerRepository.findById(idReader).orElseThrow();
+    }
+
     @PostMapping
-    public Reader add(@RequestBody Reader reader) {
+    public Reader addReader(@RequestBody Reader reader) {
         return readerRepository.save(reader);
     }
+
+    @PutMapping("/{idReader}")
+    public Reader updateReader(@PathVariable String idReader, @RequestBody Reader reader) {
+        reader.setIdReader(idReader);
+        return readerRepository.save(reader);
+    }
+
+    @DeleteMapping("/{idReader}")
+    public void deleteReader(@PathVariable String idReader) {
+        readerRepository.deleteById(idReader);
+    }
 }
+
+
+
+
